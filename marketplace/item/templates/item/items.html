@@ -1,0 +1,43 @@
+{% extends 'core/base.html'%}
+{% load static%}
+
+{%block title%}Items{%endblock%}
+
+{%block content%}
+<div class="container-fluid p-2" >
+    <form method="get" action="{%url 'item:items'%}">
+      <input type="text" name="query" value="{{query}}" placeholder="Find a bike ,a chair or a car">
+      
+      <button class="btn btn-warning">search</button>
+      <button class="btn btn-primary"><a href="{%url 'item:items'%}" class="text-decoration-none text-light">clear</a></button>
+    </form>
+    <ul>
+        {%for category in categories%}
+        <li><a href="{%url 'item:items'%}?query={{query}}&category={{category.id}}">{{category.name}}</a></li>
+        {%endfor%}
+    </ul>
+
+    <div class="container-fluid p-2" >
+
+        <h1 class="d-flex justify-content-center m-4">Newst Items by </h1>
+        <div class="row row-cols-3 g-3 p-4" style="background-color: rgb(210, 210, 210,0.6)">
+            {%for item in items%}
+                <div class="col">
+                <div class="card">
+                    <img src="{{item.image.url}}" class="card-img"
+                    alt="Hollywood Sign on The Hill" width="10"/>
+                    <div class="card-body">
+                    <a href="{%url 'item:detail' item.id%}">{{item.name}}</a>
+                    <h6 class="card-title fs-6 text-muted">Price : {{item.price}} MAD</h6>
+                    <p class="card-text">
+                        {{item.description}}
+                    </p>
+                    </div>
+                </div>
+                </div>
+            {%endfor%}
+        </div>
+</div>
+     
+</div>
+{%endblock%}
