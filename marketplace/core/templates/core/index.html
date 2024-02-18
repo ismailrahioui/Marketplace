@@ -54,8 +54,8 @@
                     <div class="card" style="width: 18.6rem;">
                         <img src="{{item.image.url}}" class="" alt="..." width="290" height="290">
                         <div class="card-body">
-                          <h5 class="card-title"><a href="{%url 'item:detail' item.id%}" class="text-decoration-none text-muted">{{item.name}}</a></h5>
-                          <p class="card-text">{{item.description}}</p>
+                          <h5 class="card-title text-truncated"><a href="{%url 'item:detail' item.id%}" class="text-decoration-none text-muted">{{item.name}}</a></h5>
+                          <p class="card-text text-truncate">{{item.description}}</p>
                           <h3 class="card-title">Price : {{item.price}} MAD</h3>
                           <h6 class="card-title">Added by  : {{item.created_by}}</h6>
                         </div>
