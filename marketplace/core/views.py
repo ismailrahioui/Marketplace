@@ -9,10 +9,11 @@ from .forms import SignupForm
 def index(request):
     items=Item.objects.all()
     categories=Category.objects.all()
-    return render(request,'core/index.html',{
+    context={
         'categories':categories,
         'items':items,
-    })
+    }
+    return render(request,'core/index.html',context)
 
 
 def Signup (request):
