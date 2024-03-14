@@ -16,7 +16,7 @@ def index(request):
     return render(request,'core/index.html',context)
 
 
-def Signup (request):
+def signup (request):
     if request.method=='POST':
         form=SignupForm(request.POST)
 
@@ -34,3 +34,7 @@ def Signup (request):
 def logout_view(request):
     logout(request)
     return redirect ('/')
+
+
+def contact(request):
+    return render (request,'core/contact.html')

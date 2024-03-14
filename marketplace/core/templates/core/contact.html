@@ -1,0 +1,54 @@
+{% extends 'core/base.html'%} {%load static%} {%block content%}
+<!-- Contact Section Begin -->
+<section class="contact spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="contact__content">
+          <div class="contact__address">
+            <h5>Contact info</h5>
+            <ul>
+              <li>
+                <h6><i class="fa fa-map-marker"></i> Address</h6>
+                <p>
+                  160 Pennsylvania Ave NW, Washington, Castle, PA 16101-5161
+                </p>
+              </li>
+              <li>
+                <h6><i class="fa fa-phone"></i> Phone</h6>
+                <p><span>125-711-811</span><span>125-668-886</span></p>
+              </li>
+              <li>
+                <h6><i class="fa fa-headphones"></i> Support</h6>
+                <p>Support.photography@gmail.com</p>
+              </li>
+            </ul>
+          </div>
+          <div class="contact__form">
+            <h5>SEND MESSAGE</h5>
+            <form action="#">
+              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Email" />
+              <input type="text" placeholder="Website" />
+              <textarea placeholder="Message"></textarea>
+              <button type="submit" class="site-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="contact__map">
+          <iframe
+            title="main map"
+            width="588"
+            height="780"
+            id="gmap_canvas"
+            src="https://maps.google.com/maps?width=588&amp;height=780&amp;hl=en&amp;q=rue%203%20n%C2%B020%20jnan%20iraki%20jnanate%20fes+(the%20address%20of%20the%20company%20office)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact Section End -->
+{%endblock%}

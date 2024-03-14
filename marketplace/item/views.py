@@ -1,14 +1,14 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from .models import Category, Item
-from django.db.models import Q
+from django.db.models import Q , Count
 from .forms import EditItemForm, NewItemForm
 
 # Create your views here.
 
 def items(request):
     query= request.GET.get('query','')
-    categories= Category.objects.all()
+    categories= Category.objects.annotate(total_products=Count('items'))
     category_id=request.GET.get('category',0)
     items = Item.objects.filter(is_solde=False)
 
@@ -22,7 +22,7 @@ def items(request):
         'items':items,
         'query':query,
         'categories':categories,
-        'category_id':int(category_id)
+        'category_id':int(category_id),
     })
 
 

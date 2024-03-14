@@ -39,7 +39,7 @@
         </button>
         {%else%}
         <button class="btn btn-success text-light">
-          <a href="" class="text-decoration-none text-light">Contact seller </a>
+          <a href="{% url 'conversation:new' item.id %}" class="text-decoration-none text-light">Contact seller </a>
         </button>
         {%endif%}
       </div>

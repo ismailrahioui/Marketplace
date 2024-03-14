@@ -1,0 +1,98 @@
+{%extends 'core/base.html'%} {%load static%}
+<!-- lkfsdfhsdfh -->
+{%block content%}
+<!-- Shop Section Begin -->
+<section class="shop spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="shop__sidebar">
+          <div class="sidebar__categories">
+            <div class="section-title">
+              <h4>Categories</h4>
+            </div>
+            <div class="categories__accordion">
+              <div class="accordion" id="accordionExample">
+                {%for category in categories%}
+                <div class="card">
+                  <div class="row align-items-center">
+                    <div class="col-md-8">
+                      <a
+                        href="{%url 'item:items'%}?query={{query}}&category={{category.id}}"
+                        class="text-truncate d-block"
+                        >{{category.name}}</a
+                      >
+                    </div>
+                    <div class="col-md-4">
+                      <span style="font-size: 13px"
+                        >({{category.total_products}})</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                {%endfor%}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <div class="row">
+          {% for item in items%}
+          <div class="col-lg-4 col-md-6">
+            <div class="product__item">
+              <div class="product__item__pic set-bg">
+                <img
+                  src="{{item.image.url}}"
+                  class="card-img"
+                  alt="Hollywood Sign on The Hill"
+                  width="10"
+                />
+
+                <ul class="product__hover">
+                  <li>
+                    <a href=""
+                      ><span
+                        class="arrow_expand fa-solid fa-up-right-and-down-left-from-center"
+                      ></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="icon_heart_alt fa fa-heart"></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><span class="icon_bag_alt fa fa-plus"></span
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="product__item__text">
+                <h6>
+                  <a href="{%url 'item:detail' item.id%}">{{item.name}}</a>
+                </h6>
+                <div class="product__price">
+                  {{item.price|floatformat:2}} MAD
+                </div>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+
+          <div class="col-lg-12 text-center">
+            <div class="pagination__option">
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#"><i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shop Section End -->
+{%endblock%}
