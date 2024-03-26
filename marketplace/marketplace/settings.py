@@ -26,12 +26,13 @@ SECRET_KEY = 'django-insecure-ub$nilbt2w+$@-ywo9z-wcc-#k3#r7q#pefew0=7!pu0mf_mk4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+
 LOGIN_URL ='/login/'
 LOGIN_REDIRECT_URL='/'
 LOGOUT_REDIRECT_URL= '/'
 
-
+WSGI_APPLICATION = 'marketplace.wsgi.app'
 
 # Application definition
 
@@ -125,7 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = 'media/'
 MEDIA_ROOT=BASE_DIR /' media'
